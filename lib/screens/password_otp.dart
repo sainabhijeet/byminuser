@@ -42,7 +42,7 @@ class _PasswordOtpState extends State<PasswordOtp> {
     super.dispose();
   }
 
-  onPressConfirm() async {
+ /* onPressConfirm() async {
     var code = _codeController.text.toString();
     var password = _passwordController.text.toString();
     var password_confirm = _passwordConfirmController.text.toString();
@@ -97,7 +97,7 @@ class _PasswordOtpState extends State<PasswordOtp> {
       ToastComponent.showDialog(passwordResendCodeResponse.message.toString(), context,
           gravity: Toast.center, duration: Toast.lengthLong);
     }
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -261,7 +261,7 @@ class _PasswordOtpState extends State<PasswordOtp> {
                                   fontWeight: FontWeight.w600),
                             ),
                             onPressed: () {
-                              onPressConfirm();
+                             /* onPressConfirm();*/
                             },
                           ),
                         ),
@@ -273,7 +273,7 @@ class _PasswordOtpState extends State<PasswordOtp> {
                   padding: const EdgeInsets.only(top: 100),
                   child: InkWell(
                     onTap: () {
-                      onTapResend();
+                      /*onTapResend();*/
                     },
                     child: Text("Resend Code",
                         textAlign: TextAlign.center,

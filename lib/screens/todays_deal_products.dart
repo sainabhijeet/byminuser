@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../helpers/shimmer_helper.dart';
 import '../my_theme.dart';
 import '../repositories/product_repository.dart';
@@ -34,7 +35,7 @@ class _TodaysDealProductsState extends State<TodaysDealProducts> {
         ),
       ),
       title: Text(
-        "Today's Deal",
+        LocalizationString.TodDeal,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,

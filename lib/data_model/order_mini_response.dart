@@ -4,6 +4,8 @@
 // https://app.quicktype.io/
 import 'dart:convert';
 
+import 'package:flutter/src/widgets/icon_data.dart';
+
 OrderMiniResponse orderMiniResponseFromJson(String str) => OrderMiniResponse.fromJson(json.decode(str));
 
 String orderMiniResponseToJson(OrderMiniResponse data) => json.encode(data.toJson());

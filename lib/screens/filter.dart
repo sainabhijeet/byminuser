@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../custom/toast_component.dart';
 import '../helpers/reg_ex_inpur_formatter.dart';
 import '../helpers/shimmer_helper.dart';
@@ -346,8 +347,8 @@ class _FilterState extends State<Filter> {
       color: Colors.white,
       child: Center(
         child: Text(_totalProductData == _productList.length
-            ? "No More Products"
-            : "Loading More Products ..."),
+            ? LocalizationString.nodata
+            : LocalizationString.loading),
       ),
     );
   }
@@ -359,8 +360,8 @@ class _FilterState extends State<Filter> {
       color: Colors.white,
       child: Center(
         child: Text(_totalBrandData == _brandList.length
-            ? "No More Brands"
-            : "Loading More Brands ..."),
+            ? LocalizationString.NoBrands
+            : LocalizationString.LoadingBrands),
       ),
     );
   }
@@ -372,8 +373,8 @@ class _FilterState extends State<Filter> {
       color: Colors.white,
       child: Center(
         child: Text(_totalShopData == _shopList.length
-            ? "No More Shops"
-            : "Loading More Shops ..."),
+            ? LocalizationString.NoShops
+            : LocalizationString.LoadingShops),
       ),
     );
   }
@@ -450,7 +451,7 @@ class _FilterState extends State<Filter> {
               child: Icon(Icons.expand_more, color: Colors.black54),
             ),
             hint: Text(
-              "Products",
+              LocalizationString.Produ,
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 13,
@@ -500,7 +501,7 @@ class _FilterState extends State<Filter> {
                   ),
                   SizedBox(width: 2),
                   Text(
-                    "Filter",
+                    LocalizationString.Filter,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 13,
@@ -528,7 +529,7 @@ class _FilterState extends State<Filter> {
                                 Padding(
                                     padding: const EdgeInsets.only(left: 24.0),
                                     child: Text(
-                                      "Sort Products By",
+                                      LocalizationString.Sort,
                                     )),
                                 RadioListTile(
                                   dense: true,
@@ -632,7 +633,7 @@ class _FilterState extends State<Filter> {
                           actions: [
                             ElevatedButton(
                               child: Text(
-                                "CLOSE",
+                                LocalizationString.close,
                                 style: TextStyle(color: MyTheme.medium_grey),
                               ),
                               onPressed: () {
@@ -667,7 +668,7 @@ class _FilterState extends State<Filter> {
                   ),
                   SizedBox(width: 2),
                   Text(
-                    "Sort",
+                    LocalizationString.sort,
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 13,
@@ -746,7 +747,7 @@ class _FilterState extends State<Filter> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
                       child: Text(
-                        "Price Range",
+                        LocalizationString.Range,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.bold),
                       ),
@@ -836,7 +837,7 @@ class _FilterState extends State<Filter> {
                     Padding(
                       padding: const EdgeInsets.only(left: 16.0),
                       child: Text(
-                        "Categories",
+                        LocalizationString.Categ,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.bold),
                       ),
@@ -846,7 +847,7 @@ class _FilterState extends State<Filter> {
                             height: 100,
                             child: Center(
                               child: Text(
-                                "No categories available",
+                                LocalizationString.NoCateg,
                                 style: TextStyle(color: MyTheme.font_grey),
                               ),
                             ),
@@ -857,7 +858,7 @@ class _FilterState extends State<Filter> {
                     Padding(
                       padding: const EdgeInsets.only(left: 16.0),
                       child: Text(
-                        "Brands",
+                        LocalizationString.Brand,
                         style: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.bold),
                       ),
@@ -867,7 +868,7 @@ class _FilterState extends State<Filter> {
                             height: 100,
                             child: Center(
                               child: Text(
-                                "No brands available",
+                                LocalizationString.NoBrand,
                                 style: TextStyle(color: MyTheme.font_grey),
                               ),
                             ),
@@ -892,7 +893,7 @@ class _FilterState extends State<Filter> {
                     //   borderRadius: BorderRadius.circular(4.0),
                     // ),
                     child: Text(
-                      "CLEAR",
+                      LocalizationString.clear,
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
@@ -907,7 +908,7 @@ class _FilterState extends State<Filter> {
                   ElevatedButton(
                     // color: Color.fromRGBO(52, 168, 83, 1),
                     child: Text(
-                      "APPLY",
+                      LocalizationString.Apply,
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {
@@ -1063,7 +1064,7 @@ class _FilterState extends State<Filter> {
         ),
       );
     } else if (_totalProductData == 0) {
-      return Center(child: Text("No product is available"));
+      return Center(child: Text(LocalizationString.NoProduct));
     } else {
       return Container(); // should never be happening
     }
@@ -1129,7 +1130,7 @@ class _FilterState extends State<Filter> {
         ),
       );
     } else if (_totalBrandData == 0) {
-      return Center(child: Text("No brand is available"));
+      return Center(child: Text(LocalizationString.Nobrand));
     } else {
       return Container(); // should never be happening
     }
@@ -1204,7 +1205,7 @@ class _FilterState extends State<Filter> {
         ),
       );
     } else if (_totalShopData == 0) {
-      return Center(child: Text("No shop is available"));
+      return Center(child: Text(LocalizationString.noshop));
     } else {
       return Container(); // should never be happening
     }

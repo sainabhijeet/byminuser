@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/services.dart';
 
+import '../Widgets/localization_strings.dart';
 import 'cart.dart';
 import 'category_list.dart';
 import 'home.dart';
@@ -90,7 +91,7 @@ class _MainState extends State<Main> {
                       : Color.fromRGBO(153, 153, 153, 1),
                   height: 20,
                 ),
-                label: "Home",
+                label: LocalizationString.home,
                 // title: Padding(
                 //   padding: const EdgeInsets.all(8.0),
                 //   child: Text(
@@ -108,7 +109,7 @@ class _MainState extends State<Main> {
                       : Color.fromRGBO(153, 153, 153, 1),
                   height: 20,
                 ),
-                label: "Categories",
+                label: LocalizationString.categories,
                 // title: Padding(
                 //   padding: const EdgeInsets.all(8.0),
                 //   child: Text(
@@ -133,7 +134,7 @@ class _MainState extends State<Main> {
                       : Color.fromRGBO(153, 153, 153, 1),
                   height: 20,
                 ),
-                label: "Cart",
+                label:LocalizationString.cart,
                 // title: Padding(
                 //   padding: const EdgeInsets.all(8.0),
                 //   child: Text(
@@ -151,7 +152,7 @@ class _MainState extends State<Main> {
                       : Color.fromRGBO(153, 153, 153, 1),
                   height: 20,
                 ),
-                label: "Profile",
+                label:LocalizationString.profile,
                 // title: Padding(
                 //   padding: const EdgeInsets.all(8.0),
                 //   child: Text(

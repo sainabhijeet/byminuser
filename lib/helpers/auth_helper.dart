@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:byminuser/helpers/shared_value_helper.dart';
 
 class AuthHelper {
@@ -12,7 +8,7 @@ class AuthHelper {
       user_id.$ = loginResponse.user.id;
       user_name.$ = loginResponse.user.name;
       user_email.$ = loginResponse.user.email;
-      user_phone.$ = loginResponse.user.phone;
+      user_phone.$ = loginResponse.user.phone!=null?loginResponse.user.phone:"";
       avatar_original.$ = loginResponse.user.avatar_original;
 
     }

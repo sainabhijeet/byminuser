@@ -14,26 +14,58 @@ import '../data_model/user_by_token.dart';
 import '../helpers/shared_value_helper.dart';
 
 class AuthRepository {
+
   Future<LoginResponse> getLoginResponse(
       @required String email, @required String password) async {
+    try {
+      print("${AppConfig.BASE_URL}/auth/login");
+      final response = await http.post(Uri.parse("${AppConfig.BASE_URL}/auth/login"),
+          headers: {"Content-type": "application/json", "Accept": "application/json"},
+          body: jsonEncode({"email": email, "password": password,"identity_matrix": AppConfig.purchase_code}));
+      print(jsonEncode({"email": email, "password": password,"identity_matrix": AppConfig.purchase_code}));
+      print(response.statusCode);
+      print('Abhijeet ' + response.body.toString());
+
+      if (response.statusCode == 200) {
+        // If the response is successful, return the LoginResponse
+        return LoginResponse.fromJson(json.decode(response.body.toString()));
+      } else {
+        // If the response is not successful, handle the error and return an error Future
+        throw Exception('Failed to fetch login response: ${response.statusCode}');
+      }
+    } catch (e) {
+      // Handle exceptions and return an error Future
+      print(e);
+      throw Exception('An error occurred: $e');
+    }
+  }
+
+
+  /*Future<LoginResponse> getLoginResponse(
+      @required String email, @required String password) async {
     // var post_body = jsonEncode({"email": "${email}", "password": "$password","identity_matrix": AppConfig.purchase_code});
-// print(post_body.toString());
+   // print(post_body.toString());
+  try{
+    print("${AppConfig.BASE_URL}/auth/login");
     final response = await http.post(Uri.parse("${AppConfig.BASE_URL}/auth/login"),
-        headers: {"Content-Type": "application/json"},
+        headers: {"Content-type": "application/json", "Accept": "application/json"},
         body: jsonEncode({"email": email, "password": password,"identity_matrix": AppConfig.purchase_code}));
     print(jsonEncode({"email": email, "password": password,"identity_matrix": AppConfig.purchase_code}));
-    return LoginResponse.fromJson(json.decode(response.body));
+    print( response.statusCode);
+    print('Abhijeet '+response.body.toString());
+    return LoginResponse.fromJson(json.decode(response.body.toString()));
+  }catch(e){
+    print(e);
   }
+  }*/
   Future<LoginResponse> getSocialLoginResponse(
   @required String name ,@required String email, @required String provider) async {
     var post_body = jsonEncode({"name": "${name}", "email": "${email}", "provider": "$provider"});
-
     final response = await http.post(Uri.parse("${AppConfig.BASE_URL}/auth/social-login"),
         headers: {"Content-Type": "application/json"}, body: post_body);
-    print(response.body);
+    print('BBBBBBBBB response.body.toString()');
     return LoginResponse.fromJson(json.decode(response.body));
   }
-
 
   Future<LogoutResponse> getLogoutResponse() async {
     final response = await http.get(Uri.parse(
@@ -49,26 +81,28 @@ class AuthRepository {
   }
 
   Future<SignupResponse> getSignupResponse(
-      @required String name,
-      @required String email_or_phone,
-      @required String password,
-      @required String passowrd_confirmation,
-      @required String register_by) async {
-    var post_body = jsonEncode({
+      signup_url
+      ) async {
+    /*var post_body = jsonEncode({
       "name": "$name",
       "email_or_phone": "${email_or_phone}",
       "password": "$password",
       "password_confirmation": "${passowrd_confirmation}",
       "register_by": "$register_by"
-    });
-   print(post_body.toString());
-    final response = await http.post(Uri.parse("${AppConfig.BASE_URL}/auth/signup"),
-        headers: {"Content-Type": "application/json"}, body: post_body);
+    });*/
+    var url= AppConfig.SIGNIN_SIGNUP+signup_url;
+   // print(post_body.toString());
+    print("Print Url For Signup URL BY Abhijeet :- $url");
+
+    final response = await http.get(Uri.parse(url));
+    print("Print Response For Signup API BY Abhijeet:-" +response.body.toString());
+    /*await http.post(Uri.parse("${AppConfig.BASE_URL}/auth/signup"),
+        headers: {"Content-Type": "application/json"}, body: post_body);*/
 
     return signupResponseFromJson(response.body);
   }
 
-  Future<ResendCodeResponse> getResendCodeResponse(
+/*  Future<ResendCodeResponse> getResendCodeResponse(
       @required int user_id, @required String verify_by) async {
     var post_body =
         jsonEncode({"user_id": "$user_id", "register_by": "$verify_by"});
@@ -77,7 +111,7 @@ class AuthRepository {
         headers: {"Content-Type": "application/json"}, body: post_body);
 
     return resendCodeResponseFromJson(response.body);
-  }
+  }*/
 
   Future<ConfirmCodeResponse> getConfirmCodeResponse(
       @required int user_id, @required String verification_code) async {
@@ -90,7 +124,7 @@ class AuthRepository {
     return confirmCodeResponseFromJson(response.body);
   }
 
-  Future<PasswordForgetResponse> getPasswordForgetResponse(
+  /*Future<PasswordForgetResponse> getPasswordForgetResponse(
       @required String email_or_phone, @required String send_code_by) async {
     var post_body = jsonEncode(
         {"email_or_phone": "$email_or_phone", "send_code_by": "$send_code_by"});
@@ -130,7 +164,7 @@ class AuthRepository {
 
     return resendCodeResponseFromJson(response.body);
   }
-
+*/
   Future<UserByTokenResponse> getUserByTokenResponse() async {
     var post_body = jsonEncode({"access_token": "${access_token.$}"});
 

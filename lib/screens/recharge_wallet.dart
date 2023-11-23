@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../custom/toast_component.dart';
 import '../helpers/shimmer_helper.dart';
 import '../my_theme.dart';
@@ -261,7 +262,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
         ),
       ),
       title: Text(
-        "Recharge Wallet",
+        LocalizationString.recharge,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
@@ -294,7 +295,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
           height: 100,
           child: Center(
               child: Text(
-            "No payment method is added",
+                LocalizationString.nopayment,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     }
@@ -400,7 +401,7 @@ class _RechargeWalletState extends State<RechargeWallet> {
               //   borderRadius: BorderRadius.circular(0.0),
               // ),
               child: Text(
-                "Recharge Wallet",
+                LocalizationString.recharge,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

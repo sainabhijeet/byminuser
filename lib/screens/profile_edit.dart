@@ -7,6 +7,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../custom/input_decorations.dart';
 import '../custom/toast_component.dart';
@@ -38,23 +39,23 @@ class _ProfileEditState extends State<ProfileEdit> {
       showDialog(
           context: context,
           builder: (BuildContext context) => CupertinoAlertDialog(
-                title: Text('Photo Permission'),
+                title: Text(LocalizationString.photo),
                 content: Text(
-                    'This app needs photo to take pictures for upload user profile photo'),
+                    LocalizationString.thisapp),
                 actions: <Widget>[
                   CupertinoDialogAction(
-                    child: Text('Deny'),
+                    child: Text(LocalizationString.deny),
                     onPressed: () => Navigator.of(context).pop(),
                   ),
                   CupertinoDialogAction(
-                    child: Text('Settings'),
+                    child: Text(LocalizationString.setting),
                     onPressed: () => openAppSettings(),
                   ),
                 ],
               ));
     } else if (status.isRestricted) {
       ToastComponent.showDialog(
-          "Go to your application settings and give photo permission ", context,
+          LocalizationString.goto, context,
           gravity: Toast.center, duration: Toast.lengthLong);
     } else if (status.isGranted) {
       //file = await ImagePicker.pickImage(source: ImageSource.camera);
@@ -165,7 +166,7 @@ class _ProfileEditState extends State<ProfileEdit> {
         ),
       ),
       title: Text(
-        "Profile",
+        LocalizationString.profile,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
@@ -179,7 +180,7 @@ class _ProfileEditState extends State<ProfileEdit> {
           height: 100,
           child: Center(
               child: Text(
-            "Please log in to see the profile",
+                LocalizationString.pleaseProfile,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     } else {
@@ -278,7 +279,7 @@ class _ProfileEditState extends State<ProfileEdit> {
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
               child: Text(
-                "Basic Information",
+                LocalizationString.basic,
                 style: TextStyle(
                     color: MyTheme.grey_153,
                     fontWeight: FontWeight.w600,
@@ -288,7 +289,7 @@ class _ProfileEditState extends State<ProfileEdit> {
             Padding(
               padding: const EdgeInsets.only(bottom: 4.0),
               child: Text(
-                "Name",
+                LocalizationString.name,
                 style: TextStyle(
                     color: MyTheme.accent_color, fontWeight: FontWeight.w600),
               ),
@@ -301,6 +302,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                   controller: _nameController,
                   autofocus: false,
                   decoration: InputDecorations.buildInputDecoration_1(
+
                       hint_text: "John Doe"),
                 ),
               ),
@@ -308,7 +310,7 @@ class _ProfileEditState extends State<ProfileEdit> {
             Padding(
               padding: const EdgeInsets.only(bottom: 4.0),
               child: Text(
-                "Password",
+                LocalizationString.password,
                 style: TextStyle(
                     color: MyTheme.accent_color, fontWeight: FontWeight.w600),
               ),
@@ -331,7 +333,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                     ),
                   ),
                   Text(
-                    "Password must be at least 6 character",
+                    LocalizationString.passmust,
                     style: TextStyle(
                         color: MyTheme.textfield_grey,
                         fontStyle: FontStyle.italic),
@@ -342,7 +344,7 @@ class _ProfileEditState extends State<ProfileEdit> {
             Padding(
               padding: const EdgeInsets.only(bottom: 4.0),
               child: Text(
-                "Retype Password",
+                LocalizationString.passrety,
                 style: TextStyle(
                     color: MyTheme.accent_color, fontWeight: FontWeight.w600),
               ),
@@ -383,7 +385,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                       //     borderRadius:
                       //         const BorderRadius.all(Radius.circular(8.0))),
                       child: Text(
-                        "Update Profile",
+                        LocalizationString.updprof,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 14,

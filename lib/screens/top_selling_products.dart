@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../helpers/shimmer_helper.dart';
 import '../my_theme.dart';
 import '../repositories/product_repository.dart';
@@ -32,7 +33,7 @@ class _TopSellingProductsState extends State<TopSellingProducts> {
         ),
       ),
       title: Text(
-        "Top Selling Products",
+        LocalizationString.selling,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,

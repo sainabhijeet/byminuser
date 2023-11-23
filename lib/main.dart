@@ -1,5 +1,9 @@
 import 'package:byminuser/repositories/auth_repository.dart';
+import 'package:byminuser/screens/login.dart';
+import 'package:byminuser/screens/orders.dart';
+import 'package:byminuser/screens/profile.dart';
 import 'package:byminuser/screens/splash.dart';
+import 'package:byminuser/screens/wishpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +21,7 @@ import 'my_theme.dart';
     DeviceOrientation.portraitDown,
   ]);
 
-  fetch_user() async{
+  /*fetch_user() async{
     var userByTokenResponse =
     await AuthRepository().getUserByTokenResponse();
 
@@ -29,9 +33,9 @@ import 'my_theme.dart';
       user_phone.$ = userByTokenResponse.phone!;
       avatar_original.$ = userByTokenResponse.avatar_original!;
     }
-  }
+  }*/
   access_token.load().whenComplete(() {
-    fetch_user();
+    /*fetch_user();*/
   });
 
 
@@ -90,7 +94,10 @@ class MyApp extends StatelessWidget {
         // ),
       ),
       home: Splash(),
-      //home: Main(),
+      // home: Profile(),
+      // home: OrdersPages(),
+       // home: WishListPage(),
+      // home: Main(),
     );
   }
 }

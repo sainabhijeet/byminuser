@@ -4,6 +4,7 @@ import 'package:toast/toast.dart';
 
 import 'package:shimmer/shimmer.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../custom/toast_component.dart';
 import '../my_theme.dart';
@@ -37,7 +38,7 @@ class _CategoryListState extends State<CategoryList> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
-        drawer: MainDrawer(),
+     /*   drawer: MainDrawer(),*/
         backgroundColor: Colors.white,
         appBar: buildAppBar(context),
         body: Stack(children: [
@@ -65,8 +66,13 @@ class _CategoryListState extends State<CategoryList> {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       centerTitle: true,
-      leading: widget.is_base_category
+     title: Text(
+       getAppBarTitle(),
+       style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
+     ),
+     /* leading: widget.is_base_category
           ? GestureDetector(
               onTap: () {
                 _scaffoldKey.currentState!.openDrawer();
@@ -96,13 +102,13 @@ class _CategoryListState extends State<CategoryList> {
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
-      titleSpacing: 0,
+      titleSpacing: 0,*/
     );
   }
 
   String getAppBarTitle() {
     String name = widget.parent_category_name == ""
-        ? (widget.is_top_category ? "Top Categories" : "Categories")
+        ? (widget.is_top_category ? LocalizationString.Top : LocalizationString.cate)
         : widget.parent_category_name;
 
     return name;
@@ -272,7 +278,7 @@ class _CategoryListState extends State<CategoryList> {
                         }
                       },
                       child: Text(
-                        "View Sub-Categories",
+                        LocalizationString.View,
                         textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -304,7 +310,7 @@ class _CategoryListState extends State<CategoryList> {
                         }));
                       },
                       child: Text(
-                        "View Products",
+                        LocalizationString.ViewP,
                         textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
@@ -348,7 +354,7 @@ class _CategoryListState extends State<CategoryList> {
                   //     borderRadius:
                   //         const BorderRadius.all(Radius.circular(8.0))),
                   child: Text(
-                    "All Products of " + widget.parent_category_name,
+                    LocalizationString.AllP + widget.parent_category_name,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 13,

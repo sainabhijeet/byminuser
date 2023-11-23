@@ -9,6 +9,7 @@ import 'package:toast/toast.dart';
 import 'package:flutter/services.dart';
 import 'package:expandable/expandable.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../custom/toast_component.dart';
 import '../helpers/shared_value_helper.dart';
@@ -202,7 +203,7 @@ class _ProductReviewsState extends State<ProductReviews> {
         ),
       ),
       title: Text(
-        "Reviews",
+        LocalizationString.review,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
@@ -236,7 +237,7 @@ class _ProductReviewsState extends State<ProductReviews> {
         height: 300,
         child: Center(
             child: Text(
-                "No reviews yet. Be the first one to review this product")),
+                LocalizationString.noReviews)),
       );
     } else {
       return Container(); // should never be happening
@@ -385,8 +386,8 @@ class _ProductReviewsState extends State<ProductReviews> {
       color: Colors.white,
       child: Center(
         child: Text(_totalData == _reviewList.length
-            ? "No More Reviews"
-            : "Loading More Reviews ..."),
+            ? LocalizationString.noMoreR
+            : LocalizationString.noLoadingR),
       ),
     );
   }

@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../custom/toast_component.dart';
 import '../helpers/shared_value_helper.dart';
@@ -154,7 +155,7 @@ class _CartState extends State<Cart> {
                 ElevatedButton(
                   // color: MyTheme.soft_accent_color,
                   child: Text(
-                    "Confirm",
+                    LocalizationString.confirm,
                     style: TextStyle(color: MyTheme.dark_grey),
                   ),
                   onPressed: () {
@@ -183,11 +184,11 @@ class _CartState extends State<Cart> {
   }
 
   onPressUpdate() {
-    process(mode: "update");
+    process(mode: LocalizationString.update);
   }
 
   onPressProceedToShipping() {
-    process(mode: "proceed_to_shipping");
+    process(mode:LocalizationString.proceed);
   }
 
   process({mode}) async {
@@ -226,10 +227,10 @@ class _CartState extends State<Cart> {
       ToastComponent.showDialog(cartProcessResponse.message.toString(), context,
           gravity: Toast.center, duration: Toast.lengthLong);
 
-      if (mode == "update") {
+      if (mode == LocalizationString.update) {
         reset();
         fetchData();
-      } else if (mode == "proceed_to_shipping") {
+      } else if (mode == LocalizationString.proceed) {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return ShippingInfo(
             owner_id: _chosenOwnerId,
@@ -266,7 +267,7 @@ class _CartState extends State<Cart> {
     //print(widget.has_bottomnav);
     return Scaffold(
         key: _scaffoldKey,
-        drawer: MainDrawer(),
+      /*  drawer: MainDrawer(),*/
         backgroundColor: Colors.white,
         appBar: buildAppBar(context),
         body: Stack(
@@ -331,7 +332,7 @@ class _CartState extends State<Cart> {
                     Padding(
                       padding: const EdgeInsets.only(left: 16.0),
                       child: Text(
-                        "Total Amount",
+                        LocalizationString.total,
                         style:
                             TextStyle(color: MyTheme.font_grey, fontSize: 14),
                       ),
@@ -378,9 +379,9 @@ class _CartState extends State<Cart> {
                       //   bottomRight: const Radius.circular(0.0),
                       // )),
                       child: Text(
-                        "UPDATE CART",
+                        LocalizationString.updatecart,
                         style: TextStyle(
-                            color: MyTheme.medium_grey,
+                            color: Colors.white /* MyTheme.medium_grey*/,
                             fontSize: 13,
                             fontWeight: FontWeight.w600),
                       ),
@@ -417,7 +418,7 @@ class _CartState extends State<Cart> {
                       //   bottomRight: const Radius.circular(8.0),
                       // )),
                       child: Text(
-                        "PROCEED TO SHIPPING",
+                        LocalizationString.PROCEED,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 13,
@@ -440,7 +441,8 @@ class _CartState extends State<Cart> {
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      leading: GestureDetector(
+      automaticallyImplyLeading: false,
+      /*leading: GestureDetector(
         onTap: () {
           _scaffoldKey.currentState!.openDrawer();
         },
@@ -457,9 +459,9 @@ class _CartState extends State<Cart> {
             ),
           ),
         ),
-      ),
+      ),*/
       title: Text(
-        "Shopping Cart",
+        LocalizationString.shopcart,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
@@ -479,7 +481,7 @@ class _CartState extends State<Cart> {
           height: 100,
           child: Center(
               child: Text(
-            "Please log in to see the cart items",
+                LocalizationString.pleaselog,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     } else if (_isInitial && _shopList.length == 0) {
@@ -547,7 +549,7 @@ class _CartState extends State<Cart> {
           height: 100,
           child: Center(
               child: Text(
-            "Cart is empty",
+                LocalizationString.cartEmpty,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     }

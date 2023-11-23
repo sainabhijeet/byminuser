@@ -1,5 +1,6 @@
 
 
+import 'package:byminuser/Widgets/localization_strings.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -311,7 +312,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Address *",
+                        child: Text(LocalizationString.addr,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -352,7 +353,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("City *",
+                        child: Text(LocalizationString.cit,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -434,7 +435,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                       ),*/
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Postal Code",
+                        child: Text(LocalizationString.postal,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -472,7 +473,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Country *",
+                        child: Text(LocalizationString.country,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -522,7 +523,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                       ),*/
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Phone",
+                        child: Text(LocalizationString.phone,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -577,7 +578,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                         //     side: BorderSide(
                         //         color: MyTheme.light_grey, width: 1.0)),
                         child: Text(
-                          "CLOSE",
+                          LocalizationString.close,
                           style: TextStyle(
                             color: MyTheme.font_grey,
                           ),
@@ -601,7 +602,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                         //     side: BorderSide(
                         //         color: MyTheme.light_grey, width: 1.0)),
                         child: Text(
-                          "ADD",
+                          LocalizationString.add,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -642,7 +643,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
           height: 100,
           child: Center(
               child: Text(
-            "Please log in to see the cart items",
+                LocalizationString.pleaselog,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     } else if (_isInitial && _shippingAddressList.length == 0) {
@@ -669,7 +670,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
           height: 100,
           child: Center(
               child: Text(
-            "No Addresses is added",
+                LocalizationString.noaddress,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     }
@@ -707,7 +708,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                     Container(
                       width: 75,
                       child: Text(
-                        "Address",
+                        LocalizationString.addr,
                         style: TextStyle(
                           color: MyTheme.grey_153,
                         ),
@@ -738,7 +739,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                     Container(
                       width: 75,
                       child: Text(
-                        "City",
+                        LocalizationString.cit,
                         style: TextStyle(
                           color: MyTheme.grey_153,
                         ),
@@ -765,7 +766,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                     Container(
                       width: 75,
                       child: Text(
-                        "Postal Code",
+                        LocalizationString.postal,
                         style: TextStyle(
                           color: MyTheme.grey_153,
                         ),
@@ -819,7 +820,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
                     Container(
                       width: 75,
                       child: Text(
-                        "Phone",
+                        LocalizationString.phone,
                         style: TextStyle(
                           color: MyTheme.grey_153,
                         ),
@@ -876,7 +877,7 @@ class _ShippingInfoState extends State<ShippingInfo> {
               //   borderRadius: BorderRadius.circular(0.0),
               // ),
               child: Text(
-                "PROCEED TO CHECKOUT",
+                LocalizationString.proceCheck,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

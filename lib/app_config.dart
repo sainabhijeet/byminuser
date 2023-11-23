@@ -19,8 +19,12 @@ class AppConfig {
   static const String API_ENDPATH = "api/v2";
   static const String PUBLIC_FOLDER = "public";
   static const String PROTOCOL = HTTPS ? "https://" : "http://";
-  static const String RAW_BASE_URL = "${PROTOCOL}${DOMAIN_PATH}";
-  static const String BASE_URL = "${RAW_BASE_URL}/${API_ENDPATH}";
+  static const String RAW_BASE_URL = "https://"+DOMAIN_PATH;
+  static const String BASE_URL = RAW_BASE_URL+'/'+API_ENDPATH;
+  // Abhijeet
+  static const String SIGNIN_SIGNUP = BASE_URL+'/auth/login';
+  static const String OTP = BASE_URL+'/auth/login';
+  static const String Login = BASE_URL+'/auth/login';
 
   //configure this if you are using amazon s3 like services
   //give direct link to file like https://[[bucketname]].s3.ap-southeast-1.amazonaws.com/

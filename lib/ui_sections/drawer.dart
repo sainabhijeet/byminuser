@@ -1,7 +1,9 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../helpers/auth_helper.dart';
 import '../helpers/shared_value_helper.dart';
@@ -27,7 +29,8 @@ class _MainDrawerState extends State<MainDrawer> {
   onTapLogout(context) async {
     AuthHelper().clearUserData();
 
-    /*
+    */
+/*
     var logoutResponse = await AuthRepository()
             .getLogoutResponse();
 
@@ -36,7 +39,8 @@ class _MainDrawerState extends State<MainDrawer> {
          ToastComponent.showDialog(logoutResponse.message, context,
                    gravity: Toast.CENTER, duration: Toast.LENGTH_LONG);
          }
-         */
+         *//*
+
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return Login();
     }));
@@ -62,7 +66,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           user_email.$ != "" && user_email.$ != null
                               ? Text("${user_email.$}")
                               : Text("${user_phone.$}"))
-                  : Text('Not logged in',
+                  : Text(LocalizationString.Not,
                       style: TextStyle(
                           color: Color.fromRGBO(153, 153, 153, 1),
                           fontSize: 14)),
@@ -71,7 +75,7 @@ class _MainDrawerState extends State<MainDrawer> {
                   visualDensity: VisualDensity(horizontal: -4, vertical: -4),
                   leading: Image.asset("assets/home.png",
                       height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                  title: Text('Home',
+                  title: Text(LocalizationString.home,
                       style: TextStyle(
                           color: Color.fromRGBO(153, 153, 153, 1),
                           fontSize: 14)),
@@ -87,7 +91,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           VisualDensity(horizontal: -4, vertical: -4),
                       leading: Image.asset("assets/profile.png",
                           height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('Profile',
+                      title: Text(LocalizationString.profile,
                           style: TextStyle(
                               color: Color.fromRGBO(153, 153, 153, 1),
                               fontSize: 14)),
@@ -104,7 +108,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           VisualDensity(horizontal: -4, vertical: -4),
                       leading: Image.asset("assets/order.png",
                           height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('Orders',
+                      title: Text(LocalizationString.order,
                           style: TextStyle(
                               color: Color.fromRGBO(153, 153, 153, 1),
                               fontSize: 14)),
@@ -121,7 +125,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           VisualDensity(horizontal: -4, vertical: -4),
                       leading: Image.asset("assets/heart.png",
                           height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('My Wishlist',
+                      title: Text(LocalizationString.myWish,
                           style: TextStyle(
                               color: Color.fromRGBO(153, 153, 153, 1),
                               fontSize: 14)),
@@ -138,7 +142,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           VisualDensity(horizontal: -4, vertical: -4),
                       leading: Image.asset("assets/chat.png",
                           height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('Messages',
+                      title: Text(LocalizationString.messages,
                           style: TextStyle(
                               color: Color.fromRGBO(153, 153, 153, 1),
                               fontSize: 14)),
@@ -155,7 +159,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           VisualDensity(horizontal: -4, vertical: -4),
                       leading: Image.asset("assets/wallet.png",
                           height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('Wallet',
+                      title: Text(LocalizationString.wall,
                           style: TextStyle(
                               color: Color.fromRGBO(153, 153, 153, 1),
                               fontSize: 14)),
@@ -173,7 +177,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           VisualDensity(horizontal: -4, vertical: -4),
                       leading: Image.asset("assets/login.png",
                           height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('Login',
+                      title: Text(LocalizationString.Log,
                           style: TextStyle(
                               color: Color.fromRGBO(153, 153, 153, 1),
                               fontSize: 14)),
@@ -190,7 +194,7 @@ class _MainDrawerState extends State<MainDrawer> {
                           VisualDensity(horizontal: -4, vertical: -4),
                       leading: Image.asset("assets/logout.png",
                           height: 16, color: Color.fromRGBO(153, 153, 153, 1)),
-                      title: Text('Logout',
+                      title: Text(LocalizationString.Logout,
                           style: TextStyle(
                               color: Color.fromRGBO(153, 153, 153, 1),
                               fontSize: 14)),
@@ -205,3 +209,4 @@ class _MainDrawerState extends State<MainDrawer> {
     );
   }
 }
+*/

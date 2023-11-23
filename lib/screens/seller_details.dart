@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../helpers/shimmer_helper.dart';
 import '../my_theme.dart';
@@ -151,7 +152,7 @@ class _SellerDetailsState extends State<SellerDetails> {
                       0.0,
                     ),
                     child: Text(
-                      "New Arrivals",
+                      LocalizationString.arriv,
                       style: TextStyle(
                           color: MyTheme.font_grey,
                           fontSize: 16,
@@ -179,7 +180,7 @@ class _SellerDetailsState extends State<SellerDetails> {
                       0.0,
                     ),
                     child: Text(
-                      "Top Selling Products",
+                      LocalizationString.selling,
                       style: TextStyle(
                           color: MyTheme.font_grey,
                           fontSize: 16,
@@ -203,7 +204,7 @@ class _SellerDetailsState extends State<SellerDetails> {
                       0.0,
                     ),
                     child: Text(
-                      "Featured Products",
+                      LocalizationString.feature,
                       style: TextStyle(
                           color: MyTheme.font_grey,
                           fontSize: 16,
@@ -257,7 +258,7 @@ class _SellerDetailsState extends State<SellerDetails> {
       return Container(
           height: 100,
           child: Center(
-              child: Text("No featured product is available from this seller",
+              child: Text(LocalizationString.Nofeature,
                   style: TextStyle(color: MyTheme.font_grey))));
     }
   }
@@ -359,7 +360,7 @@ class _SellerDetailsState extends State<SellerDetails> {
       //   borderRadius: BorderRadius.circular(0.0),
       // ),
       child: Text(
-        "View All Products From This Seller",
+        LocalizationString.viewAll,
         style: TextStyle(
             color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
       ),
@@ -419,7 +420,7 @@ class _SellerDetailsState extends State<SellerDetails> {
       return Container(
           height: 100,
           child: Center(
-              child: Text("No top selling products from this seller",
+              child: Text(LocalizationString.noTop,
                   style: TextStyle(color: MyTheme.font_grey))));
     }
   }
@@ -472,7 +473,7 @@ class _SellerDetailsState extends State<SellerDetails> {
           height: 100,
           child: Center(
               child: Text(
-            "No new arrivals",
+                LocalizationString.newarriv,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     }
@@ -540,7 +541,7 @@ class _SellerDetailsState extends State<SellerDetails> {
                         actions: [
                           ElevatedButton(
                             child: Text(
-                              "CLOSE",
+                              LocalizationString.close,
                               style: TextStyle(color: MyTheme.medium_grey),
                             ),
                             onPressed: () {

@@ -6,6 +6,7 @@ import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'dart:async';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_5.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../helpers/shared_value_helper.dart';
 import '../helpers/shimmer_helper.dart';
@@ -173,7 +174,7 @@ class _ChatState extends State<Chat> {
                       //   borderRadius: BorderRadius.circular(0.0),
                       // ),
                       child: Text(
-                        "Load More",
+                        LocalizationString.Load,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -226,8 +227,8 @@ class _ChatState extends State<Chat> {
       color: Colors.white,
       child: Center(
         child: Text(_totalData == _list.length
-            ? "No More Items"
-            : "Loading More Items ..."),
+            ? LocalizationString.NoItens
+            : LocalizationString.LoadingItem),
       ),
     );
   }
@@ -343,7 +344,7 @@ class _ChatState extends State<Chat> {
         ),
       );
     } else if (_totalData == 0) {
-      return Center(child: Text("No data is available"));
+      return Center(child: Text(LocalizationString.nodata));
     } else {
       return Container(); // should never be happening
     }

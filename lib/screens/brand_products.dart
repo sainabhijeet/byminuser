@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../helpers/shimmer_helper.dart';
 import '../my_theme.dart';
 import '../repositories/product_repository.dart';
@@ -106,8 +107,8 @@ class _BrandProductsState extends State<BrandProducts> {
       color: Colors.white,
       child: Center(
         child: Text(_totalData == _productList.length
-            ? "No More Products"
-            : "Loading More Products ..."),
+            ? LocalizationString.nomore
+            : LocalizationString.loading),
       ),
     );
   }
@@ -209,7 +210,7 @@ class _BrandProductsState extends State<BrandProducts> {
          ),
        );
      }else if (_totalData == 0) {
-       return Center(child: Text("No data is available"));
+       return Center(child: Text(LocalizationString.nodata));
      } else {
        return Container(); // should never be happening
      }

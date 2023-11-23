@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../custom/toast_component.dart';
 import '../data_model/city_response.dart';
 import '../data_model/country_response.dart';
@@ -205,7 +206,7 @@ class _AddressState extends State<Address> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: Text(
-                  "Are you sure to remove this address",
+                  LocalizationString.areyou,
                   maxLines: 3,
                   style: TextStyle(color: MyTheme.font_grey, fontSize: 14),
                 ),
@@ -213,7 +214,7 @@ class _AddressState extends State<Address> {
               actions: [
                 ElevatedButton(
                   child: Text(
-                    "Cancel",
+                    LocalizationString.cancel,
                     style: TextStyle(color: MyTheme.medium_grey),
                   ),
                   onPressed: () {
@@ -476,7 +477,7 @@ class _AddressState extends State<Address> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("City *",
+                        child: Text(LocalizationString.city,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -557,7 +558,7 @@ class _AddressState extends State<Address> {
                       ),*/
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Postal Code",
+                        child: Text(LocalizationString.postal,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -595,7 +596,7 @@ class _AddressState extends State<Address> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Country *",
+                        child: Text(LocalizationString.country,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -645,7 +646,7 @@ class _AddressState extends State<Address> {
                       ),*/
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Phone",
+                        child: Text(LocalizationString.phone,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -700,7 +701,7 @@ class _AddressState extends State<Address> {
                         //     side: BorderSide(
                         //         color: MyTheme.light_grey, width: 1.0)),
                         child: Text(
-                          "CLOSE",
+                          LocalizationString.close,
                           style: TextStyle(
                             color: MyTheme.font_grey,
                           ),
@@ -724,7 +725,7 @@ class _AddressState extends State<Address> {
                         //     side: BorderSide(
                         //         color: MyTheme.light_grey, width: 1.0)),
                         child: Text(
-                          "ADD",
+                          LocalizationString.add,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -757,7 +758,7 @@ class _AddressState extends State<Address> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Address *",
+                        child: Text(LocalizationString.address,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -798,7 +799,7 @@ class _AddressState extends State<Address> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("City *",
+                        child: Text(LocalizationString.city,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -880,7 +881,7 @@ class _AddressState extends State<Address> {
                       ),*/
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Postal Code",
+                        child: Text(LocalizationString.postal,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -919,7 +920,7 @@ class _AddressState extends State<Address> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Country *",
+                        child: Text(LocalizationString.country,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -972,7 +973,7 @@ class _AddressState extends State<Address> {
                       ),*/
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Phone",
+                        child: Text(LocalizationString.phone,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -1027,7 +1028,7 @@ class _AddressState extends State<Address> {
                         //     side: BorderSide(
                         //         color: MyTheme.light_grey, width: 1.0)),
                         child: Text(
-                          "CLOSE",
+                          LocalizationString.close,
                           style: TextStyle(
                             color: MyTheme.font_grey,
                           ),
@@ -1081,11 +1082,11 @@ class _AddressState extends State<Address> {
       title: Column(
         children: [
           Text(
-            "Addresses of user",
+            LocalizationString.addressuser,
             style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
           ),
           Text(
-            "* Double tap on an address to make it default",
+            LocalizationString.doubletap,
             style: TextStyle(fontSize: 10, color: MyTheme.medium_grey),
           ),
         ],
@@ -1101,7 +1102,7 @@ class _AddressState extends State<Address> {
           height: 100,
           child: Center(
               child: Text(
-            "Please log in to see the cart items",
+                LocalizationString.pleaselog,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     } else if (_isInitial && _shippingAddressList.length == 0) {
@@ -1128,7 +1129,7 @@ class _AddressState extends State<Address> {
           height: 100,
           child: Center(
               child: Text(
-            "No Addresses is added",
+                LocalizationString.noaddress,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     }
@@ -1164,7 +1165,7 @@ class _AddressState extends State<Address> {
                         Container(
                           width: 75,
                           child: Text(
-                            "Address",
+                            LocalizationString.addr,
                             style: TextStyle(
                               color: MyTheme.grey_153,
                             ),
@@ -1191,7 +1192,7 @@ class _AddressState extends State<Address> {
                         Container(
                           width: 75,
                           child: Text(
-                            "City",
+                            LocalizationString.cit,
                             style: TextStyle(
                               color: MyTheme.grey_153,
                             ),
@@ -1218,7 +1219,7 @@ class _AddressState extends State<Address> {
                         Container(
                           width: 75,
                           child: Text(
-                            "Postal Code",
+                            LocalizationString.postal,
                             style: TextStyle(
                               color: MyTheme.grey_153,
                             ),
@@ -1245,7 +1246,7 @@ class _AddressState extends State<Address> {
                         Container(
                           width: 75,
                           child: Text(
-                            "Country",
+                            LocalizationString.count,
                             style: TextStyle(
                               color: MyTheme.grey_153,
                             ),
@@ -1272,7 +1273,7 @@ class _AddressState extends State<Address> {
                         Container(
                           width: 75,
                           child: Text(
-                            "Phone",
+                            LocalizationString.phone,
                             style: TextStyle(
                               color: MyTheme.grey_153,
                             ),

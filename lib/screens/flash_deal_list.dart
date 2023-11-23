@@ -7,6 +7,7 @@ import 'package:toast/toast.dart';
 
 import 'package:shimmer/shimmer.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../custom/toast_component.dart';
 import '../my_theme.dart';
@@ -221,7 +222,7 @@ class _FlashDealListState extends State<FlashDealList> {
                   child: Center(
                       child: time == null
                           ? Text(
-                              'Ended',
+                        LocalizationString.ended,
                               style: TextStyle(
                                   color: MyTheme.accent_color,
                                   fontSize: 16.0,
@@ -313,7 +314,7 @@ class _FlashDealListState extends State<FlashDealList> {
         ),
       ),
       title: Text(
-        "Flash Deals",
+        LocalizationString.flash,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,

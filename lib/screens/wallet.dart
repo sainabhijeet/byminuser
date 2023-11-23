@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../custom/toast_component.dart';
 import '../helpers/reg_ex_inpur_formatter.dart';
 import '../helpers/shimmer_helper.dart';
@@ -190,8 +191,8 @@ class _WalletState extends State<Wallet> {
       color: Colors.white,
       child: Center(
         child: Text(_totalRechargeData == _rechargeList.length
-            ? "No More History"
-            : "Loading More History ..."),
+            ? LocalizationString.noHist
+            : LocalizationString.LodHist),
       ),
     );
   }
@@ -208,7 +209,7 @@ class _WalletState extends State<Wallet> {
         ),
       ),
       title: Text(
-        "My Wallet",
+        LocalizationString.walle,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
@@ -235,7 +236,7 @@ class _WalletState extends State<Wallet> {
         ),
       );
     } else if (_totalRechargeData == 0) {
-      return Center(child: Text("No recharges yet"));
+      return Center(child: Text(LocalizationString.rechyet));
     } else {
       return Container(); // should never be happening
     }
@@ -300,7 +301,7 @@ class _WalletState extends State<Wallet> {
                       height: 10,
                     ),
                     Text(
-                      "Payment Method",
+                      LocalizationString.paymet,
                       style: TextStyle(
                         color: MyTheme.dark_grey,
                       ),
@@ -330,7 +331,7 @@ class _WalletState extends State<Wallet> {
                       height: 10,
                     ),
                     Text(
-                      "Approval Status",
+                      LocalizationString.Appro,
                       style: TextStyle(
                         color: MyTheme.dark_grey,
                       ),
@@ -375,7 +376,7 @@ class _WalletState extends State<Wallet> {
               Padding(
                 padding: const EdgeInsets.only(top: 24.0),
                 child: Text(
-                  "Wallet Balance",
+                  LocalizationString.walBala,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -435,7 +436,7 @@ class _WalletState extends State<Wallet> {
         Padding(
           padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
           child: Text(
-            "Wallet Recharge History",
+            LocalizationString.walRech,
             style: TextStyle(
                 color: MyTheme.font_grey,
                 fontSize: 14,
@@ -520,7 +521,7 @@ class _WalletState extends State<Wallet> {
                         //     side: BorderSide(
                         //         color: MyTheme.light_grey, width: 1.0)),
                         child: Text(
-                          "CLOSE",
+                          LocalizationString.close,
                           style: TextStyle(
                             color: MyTheme.font_grey,
                           ),
@@ -544,7 +545,7 @@ class _WalletState extends State<Wallet> {
                         //     side: BorderSide(
                         //         color: MyTheme.light_grey, width: 1.0)),
                         child: Text(
-                          "Proceed",
+                          LocalizationString.proc,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,

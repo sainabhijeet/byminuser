@@ -7,6 +7,7 @@ import 'dart:convert';
 
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../custom/toast_component.dart';
 import '../my_theme.dart';
 import '../repositories/payment_repository.dart';
@@ -186,7 +187,7 @@ class _PaypalScreenState extends State<PaypalScreen> {
         ),
       ),
       title: Text(
-        "Pay with Paypal",
+        LocalizationString.Paypal,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,

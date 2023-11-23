@@ -7,6 +7,7 @@ import 'dart:convert';
 
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../custom/toast_component.dart';
 import '../my_theme.dart';
 import '../repositories/payment_repository.dart';
@@ -205,7 +206,7 @@ class _BkashScreenState extends State<BkashScreen> {
         ),
       ),
       title: Text(
-        "Pay with Bkash",
+        LocalizationString.paywith,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,

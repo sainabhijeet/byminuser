@@ -14,6 +14,7 @@ import 'package:flutter_html/flutter_html.dart';
 
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../addon_config.dart';
 import '../app_config.dart';
 import '../helpers/color_helper.dart';
@@ -355,7 +356,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Title",
+                        child: Text(LocalizationString.title,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -393,7 +394,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text("Message *",
+                        child: Text(LocalizationString.message,
                             style: TextStyle(
                                 color: MyTheme.font_grey, fontSize: 12)),
                       ),
@@ -451,7 +452,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         //     side: BorderSide(
                         //         color: MyTheme.light_grey, width: 1.0)),
                         child: Text(
-                          "CLOSE",
+                          LocalizationString.close,
                           style: TextStyle(
                             color: MyTheme.font_grey,
                           ),
@@ -475,7 +476,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         //     side: BorderSide(
                         //         color: MyTheme.light_grey, width: 1.0)),
                         child: Text(
-                          "SEND",
+                          LocalizationString.send,
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -535,7 +536,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     final double statusBarHeight = MediaQuery.of(context).padding.top;
     SnackBar _addedToCartSnackbar = SnackBar(
       content: Text(
-        'Added to cart',
+        LocalizationString.AddCart,
         style: TextStyle(color: MyTheme.font_grey),
       ),
       backgroundColor: MyTheme.soft_accent_color,
@@ -784,7 +785,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         child: Row(
                           children: [
                             Text(
-                              "Video",
+                              LocalizationString.video,
                               style: TextStyle(
                                   color: MyTheme.font_grey,
                                   fontSize: 14,
@@ -825,7 +826,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         child: Row(
                           children: [
                             Text(
-                              "Reviews",
+                              LocalizationString.review,
                               style: TextStyle(
                                   color: MyTheme.font_grey,
                                   fontSize: 14,
@@ -868,7 +869,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         child: Row(
                           children: [
                             Text(
-                              "Seller Policy",
+                              LocalizationString.seller,
                               style: TextStyle(
                                   color: MyTheme.font_grey,
                                   fontSize: 14,
@@ -911,7 +912,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         child: Row(
                           children: [
                             Text(
-                              "Return Policy",
+                              LocalizationString.RetPoli,
                               style: TextStyle(
                                   color: MyTheme.font_grey,
                                   fontSize: 14,
@@ -954,7 +955,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         child: Row(
                           children: [
                             Text(
-                              "Support Policy",
+                              LocalizationString.Suppoli,
                               style: TextStyle(
                                   color: MyTheme.font_grey,
                                   fontSize: 14,
@@ -986,7 +987,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       0.0,
                     ),
                     child: Text(
-                      "Products you may also like",
+                      LocalizationString.ProduLike,
                       style: TextStyle(
                           color: MyTheme.font_grey,
                           fontSize: 16,
@@ -1014,7 +1015,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       0.0,
                     ),
                     child: Text(
-                      "Top Selling Products from this seller",
+                      LocalizationString.TopSell,
                       style: TextStyle(
                           color: MyTheme.font_grey,
                           fontSize: 16,
@@ -1066,7 +1067,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Seller",
+              Text(LocalizationString.sell,
                   style: TextStyle(
                     color: Color.fromRGBO(153, 153, 153, 1),
                   )),
@@ -1097,7 +1098,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               child: Padding(
                 padding: const EdgeInsets.only(right: 4.0),
                 child: Text(
-                  "Chat with seller",
+                  LocalizationString.Chatsell,
                   style: TextStyle(
                       decoration: TextDecoration.underline,
                       color: Color.fromRGBO(7, 101, 136, 1),
@@ -1558,7 +1559,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 //   borderRadius: BorderRadius.circular(0.0),
                 // ),
                 child: Text(
-                  "Add to Cart",
+                  LocalizationString.AddCart,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -1579,7 +1580,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 //   borderRadius: BorderRadius.circular(0.0),
                 // ),
                 child: Text(
-                  "Buy Now",
+                  LocalizationString.Buy,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -1679,7 +1680,7 @@ class _ProductDetailsState extends State<ProductDetails> {
       return Container(
           height: 100,
           child: Center(
-              child: Text("No top selling products from this seller",
+              child: Text(LocalizationString.noTop,
                   style: TextStyle(color: MyTheme.font_grey))));
     }
   }
@@ -1732,7 +1733,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           height: 100,
           child: Center(
               child: Text(
-            "No related products",
+                LocalizationString.noRelated,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     }

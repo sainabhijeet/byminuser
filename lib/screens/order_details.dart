@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../addon_config.dart';
 import '../custom/toast_component.dart';
 import '../helpers/shimmer_helper.dart';
@@ -120,7 +121,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                 delegate: SliverChildListDelegate([
               Center(
                 child: Text(
-                  "Ordered Product",
+                  LocalizationString.orderProd,
                   style: TextStyle(
                       color: MyTheme.font_grey,
                       fontSize: 14,
@@ -136,7 +137,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                           : Container(
                               height: 100,
                               child: Text(
-                                "No items are ordered",
+                                LocalizationString.noorder,
                                 style: TextStyle(color: MyTheme.font_grey),
                               ),
                             )))
@@ -174,7 +175,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                         Container(
                           width: 120,
                           child: Text(
-                            "SUB TOTAL",
+                            LocalizationString.sub,
                             textAlign: TextAlign.end,
                             style: TextStyle(
                                 color: MyTheme.font_grey,
@@ -199,7 +200,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                         Container(
                           width: 120,
                           child: Text(
-                            "TAX",
+                            LocalizationString.TAX,
                             textAlign: TextAlign.end,
                             style: TextStyle(
                                 color: MyTheme.font_grey,
@@ -224,7 +225,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                         Container(
                           width: 120,
                           child: Text(
-                            "SHIPPING COST",
+                            LocalizationString.shiCost,
                             textAlign: TextAlign.end,
                             style: TextStyle(
                                 color: MyTheme.font_grey,
@@ -249,7 +250,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                         Container(
                           width: 120,
                           child: Text(
-                            "DISCOUNT",
+                            LocalizationString.Dis,
                             textAlign: TextAlign.end,
                             style: TextStyle(
                                 color: MyTheme.font_grey,
@@ -275,7 +276,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                         Container(
                           width: 120,
                           child: Text(
-                            "GRAND TOTAL",
+                            LocalizationString.GRAND,
                             textAlign: TextAlign.end,
                             style: TextStyle(
                                 color: MyTheme.font_grey,
@@ -365,7 +366,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Text(
-                      "Order placed",
+                      LocalizationString.orderplac,
                       textAlign: TextAlign.center,
                       style: TextStyle(color: MyTheme.font_grey),
                     ),
@@ -417,7 +418,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Text(
-                      "Confirmed",
+                      LocalizationString.confir,
                       textAlign: TextAlign.center,
                       style: TextStyle(color: MyTheme.font_grey),
                     ),
@@ -478,7 +479,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Text(
-                      "On Delivery",
+                      LocalizationString.onDelive,
                       textAlign: TextAlign.center,
                       style: TextStyle(color: MyTheme.font_grey),
                     ),
@@ -540,7 +541,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Text(
-                      "Delivered",
+                      LocalizationString.Delive,
                       textAlign: TextAlign.center,
                       style: TextStyle(color: MyTheme.font_grey),
                     ),
@@ -586,7 +587,7 @@ class _OrderDetailsState extends State<OrderDetails> {
             Row(
               children: [
                 Text(
-                  "Order Code",
+                  LocalizationString.orderco,
                   style: TextStyle(
                       color: MyTheme.font_grey,
                       fontSize: 13,
@@ -594,7 +595,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                 ),
                 Spacer(),
                 Text(
-                  "Shipping Method",
+                  LocalizationString.shippMet,
                   style: TextStyle(
                       color: MyTheme.font_grey,
                       fontSize: 13,
@@ -626,7 +627,7 @@ class _OrderDetailsState extends State<OrderDetails> {
             Row(
               children: [
                 Text(
-                  "Order Date",
+                  LocalizationString.orderdate,
                   style: TextStyle(
                       color: MyTheme.font_grey,
                       fontSize: 13,
@@ -634,7 +635,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                 ),
                 Spacer(),
                 Text(
-                  "Payment Method",
+                  LocalizationString.paymet,
                   style: TextStyle(
                       color: MyTheme.font_grey,
                       fontSize: 13,
@@ -665,7 +666,7 @@ class _OrderDetailsState extends State<OrderDetails> {
             Row(
               children: [
                 Text(
-                  "Payment Status",
+                  LocalizationString.paystat,
                   style: TextStyle(
                       color: MyTheme.font_grey,
                       fontSize: 13,
@@ -673,7 +674,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                 ),
                 Spacer(),
                 Text(
-                  "Delivery Status",
+                  LocalizationString.deliStat,
                   style: TextStyle(
                       color: MyTheme.font_grey,
                       fontSize: 13,
@@ -709,7 +710,7 @@ class _OrderDetailsState extends State<OrderDetails> {
             Row(
               children: [
                 Text(
-                  "Shipping Address",
+                  LocalizationString.shipAddr,
                   style: TextStyle(
                       color: MyTheme.font_grey,
                       fontSize: 13,
@@ -717,7 +718,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                 ),
                 Spacer(),
                 Text(
-                  "Total Amount",
+                  LocalizationString.total,
                   style: TextStyle(
                       color: MyTheme.font_grey,
                       fontSize: 13,
@@ -851,7 +852,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                               fontWeight: FontWeight.w600),
                         )
                       : Text(
-                          "item",
+                    LocalizationString.item,
                           style: TextStyle(
                               color: MyTheme.font_grey,
                               fontSize: 13,
@@ -880,7 +881,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            "Ask For Refund",
+                            LocalizationString.ask,
                             style: TextStyle(
                                 color: MyTheme.accent_color,
                                 fontWeight: FontWeight.w600,
@@ -932,7 +933,7 @@ class _OrderDetailsState extends State<OrderDetails> {
         ),
       ),
       title: Text(
-        "Order Details",
+        LocalizationString.orderDet,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
@@ -946,11 +947,11 @@ class _OrderDetailsState extends State<OrderDetails> {
       width: 16,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
-          color: payment_status == "paid" ? Colors.green : Colors.red),
+          color: payment_status == LocalizationString.paid ? Colors.green : Colors.red),
       child: Padding(
         padding: const EdgeInsets.all(3),
         child: Icon(
-            payment_status == "paid" ? Icons.check : Icons.timer,
+            payment_status == LocalizationString.paid ? Icons.check : Icons.timer,
             color: Colors.white,
             size: 10),
       ),

@@ -45,7 +45,7 @@ class _PasswordForgetState extends State<PasswordForget> {
     super.dispose();
   }
 
-  onPressSendCode() async {
+  /*onPressSendCode() async {
     var email = _emailController.text.toString();
 
     if (_send_code_by == 'email' && email == "") {
@@ -75,7 +75,7 @@ class _PasswordForgetState extends State<PasswordForget> {
         );
       }));
     }
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -244,7 +244,7 @@ class _PasswordForgetState extends State<PasswordForget> {
                                   fontWeight: FontWeight.w600),
                             ),
                             onPressed: () {
-                              onPressSendCode();
+                             /* onPressSendCode();*/
                             },
                           ),
                         ),

@@ -6,6 +6,7 @@ import 'dart:convert';
 
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../custom/toast_component.dart';
 import '../helpers/shared_value_helper.dart';
@@ -156,7 +157,7 @@ class _SslCommerzScreenState extends State<SslCommerzScreen> {
         ),
       ),
       title: Text(
-        "Pay with SslCommerz",
+        LocalizationString.paySsl,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,

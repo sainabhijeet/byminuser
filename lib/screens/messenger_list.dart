@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../helpers/shimmer_helper.dart';
 import '../my_theme.dart';
@@ -108,8 +109,9 @@ class _MessengerListState extends State<MessengerList> {
       color: Colors.white,
       child: Center(
         child: Text(_totalData == _list.length
-            ? "No More Items"
-            : "Loading More Items ..."),
+            ? LocalizationString.noItem
+            : LocalizationString.loadingItem
+        ),
       ),
     );
   }
@@ -124,7 +126,7 @@ class _MessengerListState extends State<MessengerList> {
         ),
       ),
       title: Text(
-        "Messages",
+        LocalizationString.messages,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
@@ -155,7 +157,7 @@ class _MessengerListState extends State<MessengerList> {
         ),
       );
     } else if (_totalData == 0) {
-      return Center(child: Text("No data is available"));
+      return Center(child: Text(LocalizationString.nodata));
     } else {
       return Container(); // should never be happening
     }

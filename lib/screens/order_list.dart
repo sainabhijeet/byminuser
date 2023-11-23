@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:shimmer/shimmer.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../my_theme.dart';
 import '../repositories/order_repository.dart';
 import 'main.dart';
@@ -238,8 +239,8 @@ class _OrderListState extends State<OrderList> {
       color: Colors.white,
       child: Center(
         child: Text(_totalData == _orderList.length
-            ? "No More Orders"
-            : "Loading More order ..."),
+            ? LocalizationString.noOrder
+            : LocalizationString.loadOrder),
       ),
     );
   }
@@ -266,7 +267,7 @@ class _OrderListState extends State<OrderList> {
                 child: Icon(Icons.expand_more, color: Colors.black54),
               ),
               hint: Text(
-                "All",
+                LocalizationString.all,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 13,
@@ -318,7 +319,7 @@ class _OrderListState extends State<OrderList> {
                 child: Icon(Icons.expand_more, color: Colors.black54),
               ),
               hint: Text(
-                "All",
+                LocalizationString.all,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 13,
@@ -393,7 +394,7 @@ class _OrderListState extends State<OrderList> {
             ),
           ),
           Text(
-            "Purchase History",
+            LocalizationString.purchase,
             style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
           ),
         ],
@@ -459,7 +460,7 @@ class _OrderListState extends State<OrderList> {
         ),
       );
     } else if (_totalData == 0) {
-      return Center(child: Text("No data is available"));
+      return Center(child: Text(LocalizationString.nodata));
     } else {
       return Container(); // should never be happening
     }
@@ -525,7 +526,7 @@ class _OrderListState extends State<OrderList> {
                     ),
                   ),
                   Text(
-                    "Payment Status - ",
+                    LocalizationString.payStatus,
                     style: TextStyle(color: MyTheme.font_grey, fontSize: 13),
                   ),
                   Text(
@@ -551,7 +552,7 @@ class _OrderListState extends State<OrderList> {
                   ),
                 ),
                 Text(
-                  "Delivery Status -",
+                  LocalizationString.DelStatus,
                   style: TextStyle(color: MyTheme.font_grey, fontSize: 13),
                 ),
                 Text(
@@ -576,7 +577,7 @@ class _OrderListState extends State<OrderList> {
       child: Padding(
         padding: const EdgeInsets.all(3),
         child: Icon(
-            payment_status == "paid" ? Icons.check : Icons.timer,
+            payment_status == LocalizationString.paid ? Icons.check : Icons.timer,
             color: Colors.white,
             size: 10),
       ),

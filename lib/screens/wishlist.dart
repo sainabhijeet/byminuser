@@ -2,7 +2,7 @@ import 'package:byminuser/screens/product_details.dart';
 import 'package:flutter/material.dart';
 
 import 'package:toast/toast.dart';
-
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../custom/toast_component.dart';
 import '../helpers/shared_value_helper.dart';
@@ -103,7 +103,7 @@ class _WishlistState extends State<Wishlist> {
         ),
       ),
       title: Text(
-        "My Wishlist",
+        LocalizationString.myWish,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
@@ -117,7 +117,7 @@ class _WishlistState extends State<Wishlist> {
           height: 100,
           child: Center(
               child: Text(
-            "Please log in to see the wishlist items",
+                LocalizationString.WishList,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     } else if (_wishlistInit == true && _wishlistItems.length == 0) {
@@ -143,7 +143,7 @@ class _WishlistState extends State<Wishlist> {
       return Container(
           height: 100,
           child: Center(
-              child: Text("No top selling products from this seller",
+              child: Text(LocalizationString.noselling,
                   style: TextStyle(color: MyTheme.font_grey))));
     }
   }

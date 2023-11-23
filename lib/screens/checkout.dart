@@ -6,6 +6,7 @@ import 'package:byminuser/screens/stripe_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../custom/toast_component.dart';
 import '../helpers/shared_value_helper.dart';
 import '../helpers/shimmer_helper.dart';
@@ -385,7 +386,7 @@ class _CheckoutState extends State<Checkout> {
                               Container(
                                 width: 120,
                                 child: Text(
-                                  "SUB TOTAL",
+                                  LocalizationString.SUB,
                                   textAlign: TextAlign.end,
                                   style: TextStyle(
                                       color: MyTheme.font_grey,
@@ -410,7 +411,7 @@ class _CheckoutState extends State<Checkout> {
                               Container(
                                 width: 120,
                                 child: Text(
-                                  "TAX",
+                                  LocalizationString.TAX,
                                   textAlign: TextAlign.end,
                                   style: TextStyle(
                                       color: MyTheme.font_grey,
@@ -435,7 +436,7 @@ class _CheckoutState extends State<Checkout> {
                               Container(
                                 width: 120,
                                 child: Text(
-                                  "SHIPPING COST",
+                                  LocalizationString.Ship,
                                   textAlign: TextAlign.end,
                                   style: TextStyle(
                                       color: MyTheme.font_grey,
@@ -460,7 +461,7 @@ class _CheckoutState extends State<Checkout> {
                               Container(
                                 width: 120,
                                 child: Text(
-                                  "DISCOUNT",
+                                  LocalizationString.Dis,
                                   textAlign: TextAlign.end,
                                   style: TextStyle(
                                       color: MyTheme.font_grey,
@@ -486,7 +487,7 @@ class _CheckoutState extends State<Checkout> {
                               Container(
                                 width: 120,
                                 child: Text(
-                                  "GRAND TOTAL",
+                                  LocalizationString.GRAND,
                                   textAlign: TextAlign.end,
                                   style: TextStyle(
                                       color: MyTheme.font_grey,
@@ -586,7 +587,7 @@ class _CheckoutState extends State<Checkout> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 16.0),
                                 child: Text(
-                                  "Total Amount",
+                                  LocalizationString.total,
                                   style: TextStyle(
                                       color: MyTheme.font_grey, fontSize: 14),
                                 ),
@@ -598,7 +599,7 @@ class _CheckoutState extends State<Checkout> {
                                     onPressDetails();
                                   },
                                   child: Text(
-                                    "see details",
+                                    LocalizationString.SEE,
                                     style: TextStyle(
                                       color: MyTheme.font_grey,
                                       fontSize: 12,
@@ -676,7 +677,7 @@ class _CheckoutState extends State<Checkout> {
                   //   bottomRight: const Radius.circular(8.0),
                   // )),
                   child: Text(
-                    "APPLY COUPON",
+                    LocalizationString.APPLY,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 13,
@@ -700,7 +701,7 @@ class _CheckoutState extends State<Checkout> {
                   //   bottomRight: const Radius.circular(8.0),
                   // )),
                   child: Text(
-                    "Remove",
+                    LocalizationString.Remove,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 13,
@@ -725,7 +726,7 @@ class _CheckoutState extends State<Checkout> {
         ),
       ),
       title: Text(
-        "Checkout",
+        LocalizationString.Check,
         style: TextStyle(fontSize: 16, color: MyTheme.accent_color),
       ),
       elevation: 0.0,
@@ -758,7 +759,7 @@ class _CheckoutState extends State<Checkout> {
           height: 100,
           child: Center(
               child: Text(
-            "No payment method is added",
+                LocalizationString.NOPayment,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     }
@@ -866,7 +867,7 @@ class _CheckoutState extends State<Checkout> {
               //   borderRadius: BorderRadius.circular(0.0),
               // ),
               child: Text(
-                "PLACE MY ORDER",
+                LocalizationString.PLACE,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

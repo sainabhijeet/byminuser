@@ -8,6 +8,7 @@ import 'package:shimmer/shimmer.dart';
 
 import 'package:toast/toast.dart';
 
+import '../Widgets/localization_strings.dart';
 import '../app_config.dart';
 import '../custom/toast_component.dart';
 import '../helpers/shimmer_helper.dart';
@@ -21,6 +22,7 @@ import 'category_list.dart';
 import 'category_products.dart';
 import 'filter.dart';
 import 'flash_deal_list.dart';
+import 'login.dart';
 
 
 class Home extends StatefulWidget {
@@ -84,6 +86,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     pirated_logo_controller?.dispose();
   }
 
+  List<String> dummyAddresses = [
+    '123 Main Street, City, State 12345',
+    '456 Elm Street, City, State 67890',
+    '789 Oak Street, City, State 24680',
+    '3rd Floor, Kanji Kihetsey Building, K G Road, Girgaon'
+  ];
+  String selectedAddress = "";
+  bool isUserSignedIn = false;
+
   @override
   Widget build(BuildContext context) {
     final double statusBarHeight = MediaQuery.of(context).padding.top;
@@ -93,7 +104,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         key: _scaffoldKey,
         backgroundColor: Colors.white,
         appBar: buildAppBar(statusBarHeight, context),
-        drawer: MainDrawer(),
+       /* drawer: MainDrawer(),*/
         body: CustomScrollView(
           slivers: <Widget>[
             SliverList(
@@ -120,6 +131,201 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     child: buildHomeSearchBox(context),
                   ),
                 ),
+                Container(
+                  color: Colors.black,
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: InkWell(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text(LocalizationString.choose),
+                              content: Container(
+                                height: 300,
+                                width: 300,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(LocalizationString.select),
+                                    SizedBox(height: 16),
+                                    Expanded(
+                                      child: ListView.builder(
+                                        itemCount: dummyAddresses.length, // Replace with your list of addresses
+                                        itemBuilder: (BuildContext context, int index) {
+                                          return Card(
+                                            shape: RoundedRectangleBorder(
+                                              side: BorderSide(color: Colors.grey, width: 1.0),
+                                              borderRadius: BorderRadius.circular(4.0),
+                                            ),
+                                            child: ListTile(
+                                              title: Text(dummyAddresses[index],
+                                                  style: TextStyle(color: Colors.blue)),
+                                              onTap: () {
+                                                setState(() {
+                                                  selectedAddress = dummyAddresses[index];
+                                                });
+                                                Navigator.of(context).pop();
+                                              },
+                                              // You can customize how the addresses are displayed here
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                   /* SizedBox(height: 8),
+                                    isUserSignedIn
+                                        ? SizedBox() // If the user is signed in, display an empty SizedBox (hidden)
+                                        : ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Login(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text('Sign in to see your addresses'),
+                                    ),*/
+                                    SizedBox(height: 8),
+                                    Row(children: <Widget>[
+                                      Expanded(
+                                        child: new Container(
+                                            margin: const EdgeInsets.only(left: 10.0, right: 20.0),
+                                            child: Divider(
+                                              color: Colors.black,
+                                              height: 36,
+                                            )),
+                                      ),
+                                      Text(LocalizationString.or, style: TextStyle(color: Colors.grey)),
+
+                                      Expanded(
+                                        child: new Container(
+                                            margin: const EdgeInsets.only(left: 20.0, right: 10.0),
+                                            child: Divider(
+                                              color: Colors.black,
+                                              height: 36,
+                                            )),
+                                      ),
+                                    ]),
+
+                                    SizedBox(height: 18),
+                                    Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: TextFormField(
+                                            maxLength: 6,
+                                            keyboardType: TextInputType.phone,
+                                            decoration: InputDecoration(
+                                              hintStyle: TextStyle(color: Colors.grey),
+                                              hintText: 'Enter Delivery Pincode',
+                                              counterText: "",
+                                              border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.all(Radius.circular(4)),
+                                              ),
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(color: Colors.red),
+                                              ),
+                                              focusedErrorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(color: Colors.red),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 16.0),
+                                          child: SizedBox(
+                                            height: 55.0,
+                                            child: ElevatedButton(
+                                              child: Text(LocalizationString.check),
+                                              onPressed: () {},
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child:Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 2),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            selectedAddress.isEmpty ?Image.asset(
+                              'assets/images/locationImage.png',
+                              height: 20,
+                              width: 20,
+                            ):Container(),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5,top: 5),
+                              child: Text(
+                                selectedAddress.isNotEmpty ?selectedAddress :LocalizationString.selectyour,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      /*Padding(
+                        padding: const EdgeInsets.only(left: 30.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/locationImage.png',
+                              height: 20,
+                              width: 20,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0, top: 7.0),
+                              child: Text(
+                                'Select Your Address for Delivery : $selectedAddress',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),*/
+                    ),
+                  ),
+                ),
+
+                /* Container(
+                  height: 50,
+                  width: 100,
+                 color: Colors.black,
+                 child: InkWell(
+                   onTap: (){},
+                   child: Padding(
+                     padding: const EdgeInsets.only(left: 50.0),
+                     child: Row(
+                       crossAxisAlignment: CrossAxisAlignment.center,
+                       children: [
+                         Image.asset('assets/images/locationImage.png',
+                         height: 20,
+                           width: 20,
+                         ),
+                         Padding(
+                           padding: const EdgeInsets.only(left: 8.0,top: 7.0),
+                           child: Text('Select Your Address for Delivery',
+                             style: TextStyle(
+                               color: Colors.white
+                             ),
+                           ),
+                         )
+                       ],
+                     ),
+                   ),
+                 ),
+                ),*/
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: buildCategoryList(),
@@ -128,6 +334,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
                   child: buildHomeCarouselSlider(context),
                 ),
+
                 /*Padding(
                   padding: const EdgeInsets.fromLTRB(
                     8.0,
@@ -139,6 +346,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 ),*/
               ]),
             ),
+
             SliverList(
               delegate: SliverChildListDelegate([
                 Padding(
@@ -152,7 +360,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Featured Categories",
+                        LocalizationString.featured,
                         style: TextStyle(
                           fontSize: 16,
                         ),
@@ -190,7 +398,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Products",
+                        LocalizationString.Produ,
                         style: TextStyle(fontSize: 16),
                       ),
                     ],
@@ -416,7 +624,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
                   child: Text(
-                    "Top Categories",
+                    LocalizationString.top,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Color.fromRGBO(132, 132, 132, 1),
@@ -431,7 +639,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return Filter(
-                selected_filter: "brands",
+                selected_filter: LocalizationString.brands,
               );
             }));
           },
@@ -453,7 +661,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     )),
                 Padding(
                     padding: const EdgeInsets.only(top: 8),
-                    child: Text("Brands",
+                    child: Text(LocalizationString.Brand,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Color.fromRGBO(132, 132, 132, 1),
@@ -486,7 +694,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     )),
                 Padding(
                     padding: const EdgeInsets.only(top: 8),
-                    child: Text("Top Sellers",
+                    child: Text(LocalizationString.topsell,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Color.fromRGBO(132, 132, 132, 1),
@@ -519,7 +727,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     )),
                 Padding(
                     padding: const EdgeInsets.only(top: 8),
-                    child: Text("Todays Deal",
+                    child: Text(LocalizationString.today,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Color.fromRGBO(132, 132, 132, 1),
@@ -552,7 +760,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     )),
                 Padding(
                     padding: const EdgeInsets.only(top: 8),
-                    child: Text("Flash Deal",
+                    child: Text(LocalizationString.flash,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Color.fromRGBO(132, 132, 132, 1),
@@ -659,7 +867,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 
   AppBar buildAppBar(double statusBarHeight, BuildContext context) {
-    return AppBar(
+    return
+      AppBar(
       flexibleSpace: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -673,7 +882,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               tileMode: TileMode.clamp),
         ),
       ),
-      leading: GestureDetector(
+    /*  leading: GestureDetector(
         onTap: () {
           _scaffoldKey.currentState!.openDrawer();
         },
@@ -698,7 +907,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-      ),
+      ),*/
+        automaticallyImplyLeading: false,
       title: Container(
         height: kToolbarHeight +
             statusBarHeight -
@@ -706,10 +916,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         //MediaQuery.of(context).viewPadding.top is the statusbar height, with a notch phone it results almost 50, without a notch it shows 24.0.For safety we have checked if its greater than thirty
         child: Container(
           child: Padding(
-              padding: const EdgeInsets.only(top: 12.0, bottom: 14, right: 12),
+              padding: const EdgeInsets.only(top: 12.0, bottom: 14, right: 12, left: 20),
 
               // when notification bell will be shown , the right padding will cease to exist.
-              child: Container(height:12,child:Image.asset("assets/logo_with_name.png")),
+              child: Container(height:35,child:Image.asset("assets/logo_with_name.png")),
                   /*GestureDetector(
                       onTap: () {
                         Navigator.push(context,
@@ -748,7 +958,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
   buildHomeSearchBox(BuildContext context) {
     return TextField(
-
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return Filter();
